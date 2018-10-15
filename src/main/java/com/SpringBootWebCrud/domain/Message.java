@@ -18,7 +18,7 @@ public class Message implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	Integer id;
+	Long id;
 	
 	@Column(name="to")
 	String to;
@@ -27,28 +27,29 @@ public class Message implements Serializable{
 	String msg;
 	
 	
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getTo() {
 		return to;
 	}
-	
+
 	public void setTo(String to) {
 		this.to = to;
 	}
-	
+
 	public String getMsg() {
 		return msg;
 	}
-	
+
 	public void setMsg(String msg) {
 		this.msg = msg;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
-	
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public boolean equals(Object object) {

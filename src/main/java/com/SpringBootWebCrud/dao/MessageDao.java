@@ -6,6 +6,4 @@ import org.springframework.stereotype.Repository;
 import com.SpringBootWebCrud.domain.Message;
 
 @Repository
-public interface MessageDao extends JpaRepository<Message, Integer>{
-		
-}
+public interface MessageDao extends JpaRepository<Message, Long>{	}

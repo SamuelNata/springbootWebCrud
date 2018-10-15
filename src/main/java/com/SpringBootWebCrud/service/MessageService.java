@@ -11,17 +11,17 @@ import com.SpringBootWebCrud.dao.MessageDao;
 import com.SpringBootWebCrud.domain.Message;
 
 @Service
-@Transactional(readOnly=true)
+@Transactional
 public class MessageService {
 	
 	@Autowired
 	MessageDao dao;
 	
-	public void insert(Message m) {
-	    dao.save(m);
+	public Message insert(Message m) {
+	    return dao.save(m);
 	}
 	
-	public Optional<Message> getById(Integer id) {
+	public Optional<Message> getById(Long id) {
         return dao.findById(id);
 	}
 	

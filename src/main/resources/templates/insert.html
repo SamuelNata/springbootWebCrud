@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<a href="/">listar</a>
+		<a href="/insert">inserir</a>
+	</div>
+	<br/>
+	
+	<h1 th:if="${msg.id == null}">Nova Mensagem</h1>
+	<h1 th:if="${msg.id != null}">Editar Mensagem</h1>
+	
+	<form th:action="@{/insert}"
+			th:method="@{${msg.id == null} ? 'post' : 'put'}"
+			th:object="${msg}">
+		<input type="hidden" th:field="*{id}" />
+		
+		Destinatario: <input id="to" type="text" value="" name="to" th:field="*{to}"/>
+		<br/>
+		Menssagem: <input id="msg" type="text" value="" name="msg" th:field="*{msg}"/>
+		<br/>
+		<button type="submit">Salvar</button>
+	</form>
+</body>
+</html>
