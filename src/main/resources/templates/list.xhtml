@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Lista de mensagens</title>
+</h:head>
+<h:body>
+	<div>
+		<h:button value="listar" outcome="list.xhtml"></h:button>
+		<h:button value="inserir" outcome="insert.xhtml"></h:button>
+	</div>
+	<br/>
+
+	<h:outputText value="Lista de mensagens:"/>
+	<br/>
+	<br/>
+	
+	<h:dataTable value="#{msgBean.list}" var="msg">
+        <h:column>
+        	<div style="border: solid 1px black; padding: 10px;">
+				<h:outputText value="To: #{msg.to}" />
+				<br />
+				<h:outputText value="~ #{msg.msg}" />
+				<br />
+				<br />
+				<h:form>
+					<h:commandLink value="Editar" action="edit.xhtml" immediate="true">
+	    	            <f:param name="id" value="#{msg.id}" />
+		            </h:commandLink>
+		            |
+	            	<h:commandLink value="Excluir" action="#{msgBean.delete(msg.id)}"/>
+            	</h:form>
+			</div>
+        	<br/>
+        </h:column>
+    </h:dataTable>
+</h:body>
+</html>
