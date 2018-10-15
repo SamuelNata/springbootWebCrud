@@ -88,9 +88,8 @@ public class MsgBean {
 	@PutMapping
 	public String update(@Valid @ModelAttribute Message entity, BindingResult result, 
 			             RedirectAttributes redirectAttributes) {
-		Message m = null;
 		try {
-			m = service.insert(entity);
+			service.insert(entity);
 			redirectAttributes.addFlashAttribute("success", "Sucesso");
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", "Erro");
